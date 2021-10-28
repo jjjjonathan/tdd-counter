@@ -31,4 +31,9 @@ describe('Counter Testing', () => {
     wrapper.find('#decrement-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('0');
   });
+
+  test('counter stays at 0 when trying to decrement below 0', () => {
+    wrapper.find('#decrement-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('0');
+  });
 });

@@ -1,9 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
 
 describe('Counter Testing', () => {
   let wrapper;
@@ -26,5 +23,12 @@ describe('Counter Testing', () => {
   test('render the click event of increment button and increment counter value', () => {
     wrapper.find('#increment-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('1');
+  });
+
+  test('render the click event of decrement button and decrement counter value', () => {
+    wrapper.find('#increment-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('1');
+    wrapper.find('#decrement-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('0');
   });
 });
